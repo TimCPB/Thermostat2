@@ -74,4 +74,13 @@ describe("Energy usage", function(){
   it ("is medium when temperature is between 18 and 25", function() {
     expect(thermostat.energyUsage()).toEqual("Medium usage");
   });
+  it ("is up when temperature is more than 25", function(){
+    thermostat.turnPowerSaverOff()
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.energyUsage()).toEqual("High usage");
+  });
+
+
 });
