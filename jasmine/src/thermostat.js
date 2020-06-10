@@ -4,13 +4,13 @@ function Thermostat() {
   this.powerSavingMode = true;
   this.PS_ON_MAX = 25;
   this.PS_OFF_MAX = 32;
+  this.LOW_USAGE = 18;
 
 };
 
 Thermostat.prototype.currentTemp = function() {
   return this.temperature;
 };
-
 
 Thermostat.prototype.up = function() {
   if (this.isMaxTemp()) {
@@ -43,4 +43,14 @@ Thermostat.prototype.isMaxTemp = function() {
 
 Thermostat.prototype.reset = function() {
   return this.temperature = 20;
+};
+
+Thermostat.prototype.energyUsage =  function() {
+  if (this.currentTemp() <= this.LOW_USAGE) {
+    return "Low usage";
+  }
+  else if (this.currentTemp() <= this.PS_ON_MAX) {
+    return "Medium usage";
+  }
+  return "foo" 
 };

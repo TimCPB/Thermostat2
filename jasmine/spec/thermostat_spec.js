@@ -56,3 +56,22 @@ describe('Power saver mode', function(){
 
 });// describe
 
+describe("Energy usage", function(){
+
+  var thermostat;
+
+  beforeEach(function(){
+    thermostat = new Thermostat();
+  });
+
+  it ("is low when temperature is 18 or less", function() {
+    for (var i = 0; i < 3; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.energyUsage()).toEqual("Low usage");
+  });
+
+  it ("is medium when temperature is between 18 and 25", function() {
+    expect(thermostat.energyUsage()).toEqual("Medium usage");
+  });
+});
