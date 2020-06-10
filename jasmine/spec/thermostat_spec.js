@@ -25,13 +25,13 @@ describe("thermostat",function(){
     expect(thermostat.currentTemp()).toEqual(10);
   });
 
-  it ("should throw an error if temperature is incresed to higher than 32", function(){
-    var thermostat = new Thermostat();
-    expect(function() {thermostat.up(13)}).toThrow("Temperature would be too high!")
-  });
-
   it ("should have power-saver is on by default", function() {
     var thermostat = new Thermostat();
     expect(thermostat.isPowerSaverOn()).toEqual(true);
+  });
+
+  it ("should throw an error if temperature is incresed to higher than 32", function(){
+    var thermostat = new Thermostat();
+    expect(function() {thermostat.up(13)}).toThrow("Temperature would be too high!")
   });
 });
