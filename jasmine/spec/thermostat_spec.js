@@ -1,4 +1,5 @@
 describe("thermostat",function(){
+
   it ("thermostat should start at 20 degrees", function(){
     var thermostat = new Thermostat();
     expect(thermostat.currentTemp()).toEqual(20);
@@ -6,13 +7,13 @@ describe("thermostat",function(){
 
   it ("should increase temperature with an up function", function(){
     var thermostat = new Thermostat();
-    thermostat.up(1);
+    thermostat.up();
     expect(thermostat.currentTemp()).toEqual(21);
   });
 
   it ("should decrease the temperature with a down function", function(){
     var thermostat = new Thermostat();
-    thermostat.down(1);
+    thermostat.down();
     expect(thermostat.currentTemp()).toEqual(19);
   });
 
