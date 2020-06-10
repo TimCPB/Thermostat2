@@ -1,5 +1,6 @@
 describe("thermostat",function(){
 
+
   it ("thermostat should start at 20 degrees", function(){
     var thermostat = new Thermostat();
     expect(thermostat.currentTemp()).toEqual(20);
@@ -29,6 +30,20 @@ describe("thermostat",function(){
     var thermostat = new Thermostat();
     expect(thermostat.isPowerSaverOn()).toEqual(true);
   });
+
+  it (" decide if power mode is on or off", function(){
+    var thermostat = new Thermostat();
+    expect(thermostat.isMaxTemp()).toEqual(false)
+  });
+
+  it ("You can reset the temperature at 20 with a reset function", function(){
+    var thermostat = new Thermostat();
+    for (var i = 0; i < 3; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.reset()).toEqual(20)
+  });
+
 });
 
 describe('Power saver mode', function(){
@@ -43,7 +58,3 @@ describe('Power saver mode', function(){
 
 });// describe
 
-  // it ("should throw an error if temperature is incresed to higher than 32", function(){
-  //   var thermostat = new Thermostat();
-  //   expect(function() {thermostat.up(13)}).toThrow("Temperature would be too high!")
-  // });
