@@ -2,16 +2,18 @@ function Thermostat() {
   this.temperature = 20;
   this.MINIMUM_TEMP = 10;
   this.powerSavingMode = true;
+
 };
 
 Thermostat.prototype.currentTemp = function() {
   return this.temperature;
 };
 
-Thermostat.prototype.up = function(temperature) {
-  // if ((this.temperature + temperature) > 32) {
-  //   throw "Temperature would be too high!"
-  // }
+
+Thermostat.prototype.up = function() {
+  if (this.isPowerSaverOn()) && (this.currentTemp() === 25){
+    return;
+  }
   return this.temperature ++;
 };
 

@@ -29,9 +29,21 @@ describe("thermostat",function(){
     var thermostat = new Thermostat();
     expect(thermostat.isPowerSaverOn()).toEqual(true);
   });
+});
+
+describe('Power saver mode', function(){
+
+  it ("set the max temperature on 25 degrees", function(){
+    var thermostat = new Thermostat();
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+  expect(thermostat.currentTemp()).toEqual(25);
+  });// it
+
+});// describe
 
   // it ("should throw an error if temperature is incresed to higher than 32", function(){
   //   var thermostat = new Thermostat();
   //   expect(function() {thermostat.up(13)}).toThrow("Temperature would be too high!")
   // });
-});
