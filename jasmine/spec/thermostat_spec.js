@@ -17,9 +17,12 @@ describe("thermostat",function(){
     expect(thermostat.currentTemp()).toEqual(19);
   });
 
-  it ("should throw an error if temperature is decreased to lower than 10", function(){
+  it ("has a minimum temperature of 10 degrees", function(){
     var thermostat = new Thermostat();
-    expect(function() {thermostat.down(11)}).toThrow("Temperature would be too low!")
+    for (var i = 0; i < 11; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.currentTemp()).toEqual(10);
   });
 
   it ("should throw an error if temperature is incresed to higher than 32", function(){

@@ -1,5 +1,6 @@
 function Thermostat() {
   this.temperature = 20;
+  this.MINIMUM_TEMP = 10;
 };
 
 Thermostat.prototype.currentTemp = function() {
@@ -13,11 +14,15 @@ Thermostat.prototype.up = function(temperature) {
   return this.temperature ++;
 };
 
-Thermostat.prototype.down = function(temperature) {
-  if ((this.temperature - temperature) < 10) {
-    throw "Temperature would be too low!";
+Thermostat.prototype.down = function() {
+  if (this.isMinimumTemp()) {
+    return;
   }
   return this.temperature --;
+};
+
+Thermostat.prototype.isMinimumTemp = function() {
+  return this.temperature === this.MINIMUM_TEMP;
 };
 
 Thermostat.prototype.isPowerSaverOn = function() {
