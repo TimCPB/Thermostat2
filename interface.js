@@ -26,9 +26,9 @@ $(document).ready(function() {
 
   function updateTemperature() {
     $('#Temperature').text(thermostat.temperature);
-    if(thermostat.energyUsage() === 'low-usage') {
+    if(thermostat.energyUsage() === 'Low usage') {
       $('#Temperature').css('color', 'green')
-    } else if(thermostat.energyUsage() === 'medium-usage') {
+    } else if(thermostat.energyUsage() === 'Medium usage') {
       $('#Temperature').css('color', 'black')
     } else {
       $('#Temperature').css('color', 'red')
