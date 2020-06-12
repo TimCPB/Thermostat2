@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> Our Thermostat </title>
-  </head>
-  <body>
-    <section>
-      <script   src="https://code.jquery.com/jquery-3.5.1.js"   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="   crossorigin="anonymous"></script>
-      <script src="jasmine/src/thermostat.js"></script>
-      <script src="./interface.js"></script>
-      <!-- <script src="./energyUsage.css"></script> -->
-      <h1 id="Temperature"> </h1>
-        <p>
-          <button id="temperature-up">+</button>
-          <button id="temperature-down">-</button>
-          <button id="temperature-reset">reset</button>
-          power saving mode is <span id="power-saving-status">on</span>
-          <button id="powersaving-on">PSM on</button>
-          <button id="powersaving-off">PSM off</button>
-          <section>
-            <h1>Current Temperature: <span id="current-temperature"></span></h1>
-            <select id="current-city">
-              <option value="london">London</option>
-              <option value="new york">New York</option>
-              <option value="paris">Paris</option>
-              <option value="tokyo">Tokyo</option>
-            </select>
-          </section>
 
-        </p>
-    </section>
-  </body>
+<head>
+  <title> Our Thermostat </title>
+</head>
+
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script src="jasmine/src/thermostat.js"></script>
+  <script src="./interface.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <section class="container center-align">
+
+    <h1 id="Temperature" style="background-color: bisque;border-radius:50px;width:30%;"></h1>
+
+    <button id="temperature-up" class="btn red btn-floating">+</button>
+    <button id="temperature-down" class="btn btn-floating blue">-</button>
+    <button id="temperature-reset" class="btn btn-floating green"><i class="material-icons">refresh</i></button><br>
+    <div class="container" style="padding-top:15px;">
+      power saving mode is <span id="power-saving-status">on</span>
+      <button id="powersaving-on">PSM on</button>
+      <button id="powersaving-off">PSM off</button>
+    </div>
+    <div class="switch" style="padding-top:10px;">
+      <label>
+        Off
+        <input type="checkbox">
+        <span class="lever"></span>
+        On
+      </label>
+    </div>
+
+
+    <h2>Current Temperature in <span id="city"></span>: <span id="current-temperature"></span></h2>
+    <section class="container center-align" style="padding-left:50px;"></section>
+    <select id="current-city" style="display:block;width:40%;margin-left:10%;">
+      <option value="london">London</option>
+      <option value="new york">New York</option>
+      <option value="paris">Paris</option>
+      <option value="tokyo">Tokyo</option>
+    </select>
+    <div class="input-field">
+      <i class="material-icons prefix">add_location</i>
+      <input type="text" id="input-city" style="width:50%;" placeholder="Enter your city here">
+      <button id="get-temperature" class="btn">Get weather</button>
+    </div>
+
+  </section>
+
+
+  </section>
+</body>
 
 </html>
